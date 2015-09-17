@@ -42,7 +42,7 @@
             return element.addClass('loading').attr('disabled', true).trigger('chosen:updated');
           };
           stopLoading = function() {
-            return element.removeClass('loading').attr('disabled', attr.disabled).trigger('chosen:updated');
+            return element.removeClass('loading').attr('disabled', !!attr.disabled).trigger('chosen:updated');
           };
           chosen = null;
           defaultText = null;
