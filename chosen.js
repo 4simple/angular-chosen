@@ -29,9 +29,6 @@
         restrict: 'A',
         require: '?ngModel',
         terminal: true,
-        scope: {
-          disabled: '=ngDisabled'
-        },
         link: function(scope, element, attr, ngModel) {
           var chosen, defaultText, disableWithMessage, empty, initOrUpdate, match, options, origRender, removeEmptyMessage, startLoading, stopLoading, valuesExpr, viewWatch;
           element.addClass('localytics-chosen');
@@ -45,7 +42,7 @@
             return element.addClass('loading').attr('disabled', true).trigger('chosen:updated');
           };
           stopLoading = function() {
-            return element.removeClass('loading').attr('disabled', !!scope.disabled).trigger('chosen:updated');
+            return element.removeClass('loading').attr('disabled', attr.disabled).trigger('chosen:updated');
           };
           chosen = null;
           defaultText = null;
